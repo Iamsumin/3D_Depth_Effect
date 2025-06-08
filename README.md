@@ -1,7 +1,7 @@
 # 3D Depth Effect
 
 ## 🔍 Project Overview
-- 본 프로젝트는 단일 2D 이미지를 입력으로 받아, MiDaS 딥러닝 모델을 통해 픽셀 단위 깊이 정보를 추정하고, OpenCV 기반의 시차 효과(Parallax Effect)를 적용하여 마치 이미지 속 장면이 3D처럼 살아 움직이는 듯한 입체적인 시각 효과를 구현합니다
+본 프로젝트는 단일 2D 이미지를 입력으로 받아, MiDaS 딥러닝 모델을 통해 픽셀 단위 깊이 정보를 추정하고, OpenCV 기반의 시차 효과(Parallax Effect)를 적용하여 마치 이미지 속 장면이 3D처럼 살아 움직이는 듯한 입체적인 시각 효과를 구현합니다
 
 ## 🎯 Motivation
 소품샵 [프레젠트모먼트(PRESENT MOMENT)](https://presentmoment.kr/85/?idx=150#prod_detail_detail)에서 본 월레스와 그로밋 3D 렌티큘러 카드에서 영감을 받았습니다 ~ 
