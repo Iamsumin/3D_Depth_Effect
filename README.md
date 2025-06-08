@@ -1,19 +1,17 @@
 # 3D Depth Effect
 
-단일 2D 이미지를 입력으로 받아, MiDaS 딥러닝 모델을 활용한 깊이 예측과 OpenCV 기반 시차 효과(parallax effect)를 통해 입체감 있는 이미지 표현을 구현하는 프로젝트입니다.
-
 ## 🔍 Project Overview
-이 프로젝트는 2D 이미지 한 장에서 MiDas 모델을 활용해 깊이를 추정하고, 깊이에 따라 픽셀을 이동시켜 입체적인 효과를 연출합니다. 
+- 본 프로젝트는 단일 2D 이미지를 입력으로 받아, MiDaS 딥러닝 모델을 통해 픽셀 단위 깊이 정보를 추정하고, OpenCV 기반의 시차 효과(Parallax Effect)를 적용하여 마치 이미지 속 장면이 3D처럼 살아 움직이는 듯한 입체적인 시각 효과를 구현합니다
 
 ## 🎯 Motivation
-소품샵 [프레젠트모먼트(PRESENT MOMENT)](https://presentmoment.kr/85/?idx=150#prod_detail_detail)에서 본 월레스와 그로밋 3D 렌티큘러 카드에서 영감을 받았습니다 ~
+소품샵 [프레젠트모먼트(PRESENT MOMENT)](https://presentmoment.kr/85/?idx=150#prod_detail_detail)에서 본 월레스와 그로밋 3D 렌티큘러 카드에서 영감을 받았습니다 ~ 
 
 ## 🎥 Demo Video
 [![Watch the video](https://img.youtube.com/vi/tYM8hmwlflc/0.jpg)](https://youtu.be/tYM8hmwlflc?si=88IS8XDW7v8pksEm)
 
 ## 🖼️ Depth map output 
 ![Depth Map](images/output.png)
-가까운 영역은 밝게, 먼 영역은 어둡게!
+위 이미지는 MiDaS 모델로 생성된 Depth Map이며 가까운 영역일수록 밝게, 먼 영역일수록 어둡게 나타납니다.
 
 
 ## 🔧 Features
@@ -30,14 +28,17 @@
   픽셀 이동으로 생기는 공백을 `cv2.inpaint`로 보완하고, Sobel edge + Gaussian blur를 이용해 경계선을 자연스럽게 합니다. 
 
 - **자동 움직임 or 마우스 기반 인터랙션**  
-  기본적으로는 `np.sin` 기반 자동 움직임을 구현했으며, 주석을 해제하면 마우스를 따라 움직이는 인터랙션도 가능합니다.
+  기본적으로는 `np.sin` 기반 자동 움직임을 구현했으며, main.py 마우스 기반 인터랙션 주석을 해제하면 마우스를 따라 움직이는 모션도 가능합니다.
 
 ## 📚 References
-깊이 추정은 Intelligent Systems Lab (ISL)에서 제공하는 MiDaS 저장소의 코드 및 모델 가중치를 포함하고 있습니다. `midas` 디렉토리 전체를 이용하여 단일 이미지 기반의 깊이 추정을 수행하였습니다.  
-MiDaS 코드는 MIT 라이선스 하에 배포되며, 자세한 내용은 아래 링크를 참고해 주세요.
+깊이 추정에는 Intelligent Systems Lab (ISL)에서 제공하는 MiDaS 저장소의 코드와 모델 구조를 활용하였습니다.
+models/midas 디렉토리 전체를 사용해 단일 이미지 기반의 깊이 추정을 수행했습니다.
 
-- [MiDaS: Monocular Depth Estimation](https://github.com/isl-org/MiDaS)
-
-또한, 데모에 사용된 이미지는 [WallpaperBetter](https://www.wallpaperbetter.com/ko)에서 다운로드하였습니다.
+⚠️ GitHub의 용량 제한으로 인해 학습된 모델 파일(dpt_hybrid_384.pt)은 본 레포지토리에 포함되어 있지 않습니다.
+실행을 위해서는 MiDaS 공식 저장소에서 모델 파일을 다운로드한 후 아래 경로에 수동으로 넣어주세요:
+> models/midas/dpt_hybrid_384.pt
+- 다운로드 : [Official MiDaS Repository](https://github.com/isl-org/MiDaS)
+- 라이선스 : MiDaS 코드는 MIT 라이선스로 배포되며, 자세한 사항은 저장소에서 확인하실 수 있습니다.
+- 데모에 사용된 이미지는 [WallpaperBetter](https://www.wallpaperbetter.com/ko)에서 다운로드하였습니다.
 
   
